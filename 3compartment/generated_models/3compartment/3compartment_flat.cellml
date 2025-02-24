@@ -1048,7 +1048,7 @@
     <variable name="eps_m4" units="m4" initial_value="1e-14"/>
     <variable name="eps_m2" units="m2" initial_value="1e-14"/>
     <variable name="eps_1" units="dimensionless" initial_value="0.07"/>
-    <variable name="eps_2" units="dimensionless" initial_value="0.02"/>
+    <variable name="eps_2" units="dimensionless" initial_value="0.05"/>
     <variable name="q_lv" units="m3" initial_value="q_lv_init" interface="public"/>
     <variable name="q_rv" units="m3" initial_value="q_rv_init" interface="public"/>
     <variable name="q_la" units="m3" initial_value="q_la_init" interface="public"/>

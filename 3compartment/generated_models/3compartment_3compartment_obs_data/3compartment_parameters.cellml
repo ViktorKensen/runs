@@ -171,7 +171,7 @@
 <variable initial_value="4.0e-6" name="q_ra_init" public_interface="out" units="m3"/>
 <variable initial_value="10.0e-6" name="q_rv_init" public_interface="out" units="m3"/>
 <variable initial_value="4.0e-6" name="q_la_init" public_interface="out" units="m3"/>
-<variable initial_value="5.0000000000e-04" name="q_lv_init" public_interface="out" units="m3"/>
+<variable initial_value="4.9829309281e-04" name="q_lv_init" public_interface="out" units="m3"/>
 <variable initial_value="0.10408163264" name="T_ac" public_interface="out" units="second"/>
 <variable initial_value="0.10408163264" name="T_ar" public_interface="out" units="second"/>
 <variable initial_value="0.48979591832" name="t_astart" public_interface="out" units="second"/>
@@ -184,8 +184,8 @@
 <variable initial_value="6.665e+6" name="E_rv_B" public_interface="out" units="J_per_m6"/>
 <variable initial_value="9.331e+6" name="E_la_A" public_interface="out" units="J_per_m6"/>
 <variable initial_value="5.1997e+6" name="E_la_B" public_interface="out" units="J_per_m6"/>
-<variable initial_value="3.3971366526e+08" name="E_lv_A" public_interface="out" units="J_per_m6"/>
-<variable initial_value="1.0595914929e+07" name="E_lv_B" public_interface="out" units="J_per_m6"/>
+<variable initial_value="3.6647144777e+08" name="E_lv_A" public_interface="out" units="J_per_m6"/>
+<variable initial_value="9.9425289329e+06" name="E_lv_B" public_interface="out" units="J_per_m6"/>
 <variable initial_value="0.3" name="K_vo_trv" public_interface="out" units="m3_per_Js"/>
 <variable initial_value="0.2" name="K_vo_puv" public_interface="out" units="m3_per_Js"/>
 <variable initial_value="0.3" name="K_vo_miv" public_interface="out" units="m3_per_Js"/>
@@ -222,7 +222,7 @@
 <variable initial_value="0.0" name="u_ext_par" public_interface="out" units="J_per_m3"/>
 <variable initial_value="1.0e-6" name="I_par" public_interface="out" units="Js2_per_m6"/>
 <variable initial_value="1.0e6" name="R_aortic_root" public_interface="out" units="Js_per_m6"/>
-<variable initial_value="8.2559510752e-09" name="C_aortic_root" public_interface="out" units="m6_per_J"/>
+<variable initial_value="9.8094770281e-09" name="C_aortic_root" public_interface="out" units="m6_per_J"/>
 <variable initial_value="0.0" name="u_ext_aortic_root" public_interface="out" units="J_per_m3"/>
 <variable initial_value="1.0e+4" name="I_aortic_root" public_interface="out" units="Js2_per_m6"/>
 <variable initial_value="5.04615384615e7" name="R_T_systemic_T" public_interface="out" units="Js_per_m6"/>

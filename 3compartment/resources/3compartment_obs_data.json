@@ -113,7 +113,7 @@
     "operation": "mean",
     "operands":["heart/u_ra"],
     "unit": "J_per_m3",
-    "weight": 20,
+    "weight": 40,
     "value": 1586,
     "std": 261,
     "cost_type":"gaussian_MLE",
