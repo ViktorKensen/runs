@@ -1,0 +1,7 @@
+vessel_name,                  param_name,       param_type,  min,        max,     name_for_plotting
+heart,                        q_lv_init,        const,       200e-6,    500e-6,  q_{sbv} 
+aortic_root,                  C,                const,       8e-9,       2e-8,     C_{ao}
+heart,                        E_lv_A,           const,       2e8,        4e8,      E_{lvA}
+heart,                        E_lv_B,           const,       0.5e7,        1.06e7,     E_{lvB}
+venous_svc,	              C,                const,       5.61168e-7,     7.41752e-7,  C_{svc}
+
