@@ -682,7 +682,7 @@
     <variable name="E_rv_A" units="J_per_m6" initial_value="73.315e+6" interface="public"/>
     <variable name="E_rv_B" units="J_per_m6" initial_value="6.665e+6" interface="public"/>
     <variable name="E_la_A" units="J_per_m6" initial_value="9.331e+6" interface="public"/>
-    <variable name="E_la_B" units="J_per_m6" initial_value="5.1997e+6" interface="public"/>
+    <variable name="E_la_B" units="J_per_m6" initial_value="11.997e+6" interface="public"/>
     <variable name="E_lv_A" units="J_per_m6" initial_value="366.575e+6" interface="public"/>
     <variable name="E_lv_B" units="J_per_m6" initial_value="10.664e+6" interface="public"/>
     <variable name="K_vo_trv" units="m3_per_Js" initial_value="0.3" interface="public"/>
