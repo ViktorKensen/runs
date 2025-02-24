@@ -118,29 +118,5 @@
     "std": 261,
     "cost_type":"gaussian_MLE",
     "plot_type":"horizontal"
-  },
-  { "variable": "ev",
-    "name_for_plotting": "e_{v}",
-    "data_type": "constant",
-    "operation": "mean",
-    "operands":["heart/e_v"],
-    "unit": "J_per_m3",
-    "weight": 0.0,
-    "value": 0.0,
-    "std": 0.001,
-    "cost_type":"gaussian_MLE",
-    "plot_type":"horizontal"
-  },   
-  { "variable": "ea",
-    "name_for_plotting": "e_{a}",
-    "data_type": "constant",
-    "operation": "mean",
-    "operands":["heart/e_a"],
-    "unit": "J_per_m3",
-    "weight": 0.0,
-    "value": 0.0,
-    "std": 0.001,
-    "cost_type":"gaussian_MLE",
-    "plot_type":"horizontal"
   }   
 ]
