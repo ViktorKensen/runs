@@ -63,7 +63,7 @@ I_aortic_root,Js2_per_m6,1.0e+4,to_be_identified
 R_T_systemic_T,Js_per_m6,5.04615384615e7,calculated_from_mean_P_and_v
 C_T_systemic_T,m6_per_J,5e-8,calculated_from_approx_P_and_q
 u_ext_systemic_T,J_per_m3,0.0,user_defined
-R_venous_svc,Js_per_m6,1114600.0,small_chosen
+R_venous_svc,Js_per_m6,511460.0,small_chosen
 q_C_init_venous_svc,m3,1.111e-3,user_defined
 C_venous_svc,m6_per_J,5.61168e-7,calculated_from_typical_venous_pressure_init_stressed_vol
 u_ext_venous_svc,J_per_m3,0.0,user_defined
