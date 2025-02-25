@@ -209,7 +209,7 @@
 <variable initial_value="0.000314" name="A_nn_aov" public_interface="out" units="m2"/>
 </component>
 <component name="parameters">
-<variable initial_value="1.333e+6" name="R_pvn" public_interface="out" units="Js_per_m6"/>
+<variable initial_value="2.333e+6" name="R_pvn" public_interface="out" units="Js_per_m6"/>
 <variable initial_value="0.60015e-8" name="C_pvn" public_interface="out" units="m6_per_J"/>
 <variable initial_value="0.0" name="u_ext_pvn" public_interface="out" units="J_per_m3"/>
 <variable initial_value="1.0e-6" name="I_pvn" public_interface="out" units="Js2_per_m6"/>
@@ -228,7 +228,7 @@
 <variable initial_value="5.04615384615e7" name="R_T_systemic_T" public_interface="out" units="Js_per_m6"/>
 <variable initial_value="5e-8" name="C_T_systemic_T" public_interface="out" units="m6_per_J"/>
 <variable initial_value="0.0" name="u_ext_systemic_T" public_interface="out" units="J_per_m3"/>
-<variable initial_value="1114600.0" name="R_venous_svc" public_interface="out" units="Js_per_m6"/>
+<variable initial_value="511460.0" name="R_venous_svc" public_interface="out" units="Js_per_m6"/>
 <variable initial_value="5.61168e-7" name="C_venous_svc" public_interface="out" units="m6_per_J"/>
 <variable initial_value="0.0" name="u_ext_venous_svc" public_interface="out" units="J_per_m3"/>
 <variable initial_value="1.0e-3" name="I_venous_svc" public_interface="out" units="Js2_per_m6"/>

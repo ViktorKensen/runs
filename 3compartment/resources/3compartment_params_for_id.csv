@@ -6,4 +6,3 @@ heart,                        E_lv_B,           const,       8.5312e6,        12
 venous_svc,	              C,                const,       5.61168e-7,     7.41752e-7,  C_{svc}
 heart,                        E_rv_A,           const,       58.652e6,        87.978e6,      E_{rvA}
 heart,                        E_rv_B,           const,       5.332e6,        7.998e6,     E_{rvB}
-venous_svc, 		      R,                const,       891680, 1337520, R_{svc}
