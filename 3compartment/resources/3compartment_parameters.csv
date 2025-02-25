@@ -1,11 +1,12 @@
 variable_name,units,value,data_reference
 R_pvn,Js_per_m6,2.333e+6,Blanco_2013_Table_8
-q_C_init_pvn,m3,1e-4,user_defined
 C_pvn,m6_per_J,0.60015e-8,to_be_identified
 u_ext_pvn,J_per_m3,0.0,user_defined
 I_pvn,Js2_per_m6,1.0e-6,Blanco_2013_Table_8
+q_C_init_pvn,m3,1e-4,user_defined
 q_us_0_pvn,m3,0.0,user_defined
 Delta_q_us_pvn,m3,0.0,user_defined
+v_inf_pvn,m3_per_s, 0, not_used
 Delta_C_pvn,m6_per_J,0.0,user_defined
 R_par,Js_per_m6,10.664e+6,Blanco_2013_Table_8
 C_par,m6_per_J,0.0309077e-7,to_be_identified
@@ -64,10 +65,11 @@ R_T_systemic_T,Js_per_m6,5.04615384615e7,calculated_from_mean_P_and_v
 C_T_systemic_T,m6_per_J,5e-8,calculated_from_approx_P_and_q
 u_ext_systemic_T,J_per_m3,0.0,user_defined
 R_venous_svc,Js_per_m6,511460.0,small_chosen
-q_C_init_venous_svc,m3,1.111e-3,user_defined
 C_venous_svc,m6_per_J,5.61168e-7,calculated_from_typical_venous_pressure_init_stressed_vol
 u_ext_venous_svc,J_per_m3,0.0,user_defined
 I_venous_svc,Js2_per_m6,1.0e-3,small_chosen
+q_C_init_venous_svc,m3,1.111e-3,user_defined
 q_us_0_venous_svc,m3,0.0,user_defined
 Delta_q_us_venous_svc,m3,0.0,user_defined
+v_inf_venous_svc,m3_per_s, 0, input
 Delta_C_venous_svc,m6_per_J,0.0,user_defined

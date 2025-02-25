@@ -268,6 +268,7 @@
    <variable name="q_us_wCont" public_interface="in" units="m3"/>
    <variable name="Delta_q_us" public_interface="in" units="m3"/>
    <variable name="Delta_C" public_interface="in" units="m6_per_J"/>
+   <variable name="v_inf" public_interface="in" units="m3_per_s"/>
 </component>
 <component name="par">
    <variable name="u" public_interface="in" units="J_per_m3"/>
@@ -382,6 +383,7 @@
    <variable name="q_us_wCont" public_interface="in" units="m3"/>
    <variable name="Delta_q_us" public_interface="in" units="m3"/>
    <variable name="Delta_C" public_interface="in" units="m6_per_J"/>
+   <variable name="v_inf" public_interface="in" units="m3_per_s"/>
 </component>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;own vessel mappings&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -400,6 +402,7 @@
    <map_variables variable_1="q_us_wCont" variable_2="q_us_wCont"/>
    <map_variables variable_1="Delta_q_us" variable_2="Delta_q_us"/>
    <map_variables variable_1="Delta_C" variable_2="Delta_C"/>
+   <map_variables variable_1="v_inf" variable_2="v_inf"/>
 </connection>
 <connection>
    <map_components component_1="par" component_2="par_module"/>
@@ -519,6 +522,7 @@
    <map_variables variable_1="q_us_wCont" variable_2="q_us_wCont"/>
    <map_variables variable_1="Delta_q_us" variable_2="Delta_q_us"/>
    <map_variables variable_1="Delta_C" variable_2="Delta_C"/>
+   <map_variables variable_1="v_inf" variable_2="v_inf"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;parameters mapping to modules&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>
@@ -531,6 +535,7 @@
    <map_variables variable_1="q_us_0_pvn" variable_2="q_us_0"/>
    <map_variables variable_1="Delta_q_us_pvn" variable_2="Delta_q_us"/>
    <map_variables variable_1="Delta_C_pvn" variable_2="Delta_C"/>
+   <map_variables variable_1="v_inf_pvn" variable_2="v_inf"/>
 </connection>
 <connection>
    <map_components component_1="parameters" component_2="par_module"/>
@@ -610,6 +615,7 @@
    <map_variables variable_1="q_us_0_venous_svc" variable_2="q_us_0"/>
    <map_variables variable_1="Delta_q_us_venous_svc" variable_2="Delta_q_us"/>
    <map_variables variable_1="Delta_C_venous_svc" variable_2="Delta_C"/>
+   <map_variables variable_1="v_inf_venous_svc" variable_2="v_inf"/>
 </connection>
 <!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;time mapping&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;//-->
 <connection>

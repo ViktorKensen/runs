@@ -639,6 +639,7 @@
     <variable name="q_C_init_pvn" units="m3" initial_value="1e-4" interface="public"/>
     <variable name="q_us_0_pvn" units="m3" initial_value="0.0" interface="public"/>
     <variable name="Delta_q_us_pvn" units="m3" initial_value="0.0" interface="public"/>
+    <variable name="v_inf_pvn" units="m3_per_s" initial_value="0" interface="public"/>
     <variable name="Delta_C_pvn" units="m6_per_J" initial_value="0.0" interface="public"/>
     <variable name="R_par" units="Js_per_m6" initial_value="10.664e+6" interface="public"/>
     <variable name="C_par" units="m6_per_J" initial_value="0.0309077e-7" interface="public"/>
@@ -658,6 +659,7 @@
     <variable name="q_C_init_venous_svc" units="m3" initial_value="1.111e-3" interface="public"/>
     <variable name="q_us_0_venous_svc" units="m3" initial_value="0.0" interface="public"/>
     <variable name="Delta_q_us_venous_svc" units="m3" initial_value="0.0" interface="public"/>
+    <variable name="v_inf_venous_svc" units="m3_per_s" initial_value="0" interface="public"/>
     <variable name="Delta_C_venous_svc" units="m6_per_J" initial_value="0.0" interface="public"/>
   </component>
   <component name="parameters_global">
@@ -731,6 +733,7 @@
     <variable name="Delta_q_us" units="m3" interface="public"/>
     <variable name="Delta_C" units="m6_per_J" interface="public"/>
     <variable name="C_wCont" units="m6_per_J" interface="public"/>
+    <variable name="v_inf" units="m3_per_s" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
         <eq/>
@@ -779,9 +782,13 @@
           <ci>q_C_change</ci>
         </apply>
         <apply>
-          <minus/>
-          <ci>v_in</ci>
-          <ci>v</ci>
+          <plus/>
+          <apply>
+            <minus/>
+            <ci>v_in</ci>
+            <ci>v</ci>
+          </apply>
+          <ci>v_inf</ci>
         </apply>
       </apply>
       <!-- TODO CHECK THAT CHANGING US VOLUME LIKE THIS CONSERVES VOLUME!!!!-->
@@ -2530,6 +2537,7 @@
     <variable name="Delta_q_us" units="m3" interface="public"/>
     <variable name="Delta_C" units="m6_per_J" interface="public"/>
     <variable name="C_wCont" units="m6_per_J" interface="public"/>
+    <variable name="v_inf" units="m3_per_s" interface="public"/>
     <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
       <apply>
         <eq/>
@@ -2578,9 +2586,13 @@
           <ci>q_C_change</ci>
         </apply>
         <apply>
-          <minus/>
-          <ci>v_in</ci>
-          <ci>v</ci>
+          <plus/>
+          <apply>
+            <minus/>
+            <ci>v_in</ci>
+            <ci>v</ci>
+          </apply>
+          <ci>v_inf</ci>
         </apply>
       </apply>
       <!-- TODO CHECK THAT CHANGING US VOLUME LIKE THIS CONSERVES VOLUME!!!!-->
@@ -2692,6 +2704,7 @@
     <variable name="q_us_wCont" units="m3" interface="public"/>
     <variable name="Delta_q_us" units="m3" interface="public"/>
     <variable name="Delta_C" units="m6_per_J" interface="public"/>
+    <variable name="v_inf" units="m3_per_s" interface="public"/>
   </component>
   <component name="par">
     <variable name="u" units="J_per_m3" interface="public"/>
@@ -2806,6 +2819,7 @@
     <variable name="q_us_wCont" units="m3" interface="public"/>
     <variable name="Delta_q_us" units="m3" interface="public"/>
     <variable name="Delta_C" units="m6_per_J" interface="public"/>
+    <variable name="v_inf" units="m3_per_s" interface="public"/>
   </component>
   <connection component_1="parameters" component_2="pvn_module">
     <map_variables variable_1="R_pvn" variable_2="R"/>
@@ -2815,6 +2829,7 @@
     <map_variables variable_1="q_C_init_pvn" variable_2="q_C_init"/>
     <map_variables variable_1="q_us_0_pvn" variable_2="q_us_0"/>
     <map_variables variable_1="Delta_q_us_pvn" variable_2="Delta_q_us"/>
+    <map_variables variable_1="v_inf_pvn" variable_2="v_inf"/>
     <map_variables variable_1="Delta_C_pvn" variable_2="Delta_C"/>
   </connection>
   <connection component_1="parameters" component_2="par_module">
@@ -2842,6 +2857,7 @@
     <map_variables variable_1="q_C_init_venous_svc" variable_2="q_C_init"/>
     <map_variables variable_1="q_us_0_venous_svc" variable_2="q_us_0"/>
     <map_variables variable_1="Delta_q_us_venous_svc" variable_2="Delta_q_us"/>
+    <map_variables variable_1="v_inf_venous_svc" variable_2="v_inf"/>
     <map_variables variable_1="Delta_C_venous_svc" variable_2="Delta_C"/>
   </connection>
   <connection component_1="parameters_global" component_2="heart_module">
@@ -2924,6 +2940,7 @@
     <map_variables variable_1="q_us_wCont" variable_2="q_us_wCont"/>
     <map_variables variable_1="Delta_q_us" variable_2="Delta_q_us"/>
     <map_variables variable_1="Delta_C" variable_2="Delta_C"/>
+    <map_variables variable_1="v_inf" variable_2="v_inf"/>
   </connection>
   <connection component_1="pvn_module" component_2="par_module">
     <map_variables variable_1="v_in" variable_2="v"/>
@@ -3071,6 +3088,7 @@
     <map_variables variable_1="q_us_wCont" variable_2="q_us_wCont"/>
     <map_variables variable_1="Delta_q_us" variable_2="Delta_q_us"/>
     <map_variables variable_1="Delta_C" variable_2="Delta_C"/>
+    <map_variables variable_1="v_inf" variable_2="v_inf"/>
   </connection>
   <connection component_1="venous_svc_module" component_2="terminal_venous_connection">
     <map_variables variable_1="v_in" variable_2="v_venous_svc"/>
