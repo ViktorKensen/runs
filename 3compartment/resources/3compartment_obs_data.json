@@ -77,7 +77,7 @@
     "operation": "E_A_ratio",
     "operands":["time", "heart/v_miv", "heart/T"],
     "unit": "m3_per_s",
-    "weight": 1,
+    "weight": 0,
     "value": 1.25,
     "std": 0.125,
     "cost_type":"gaussian_MLE",
