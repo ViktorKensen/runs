@@ -2559,7 +2559,9 @@
       ["q_us_0", "m3", "access", "constant"],
       ["q_us_wCont", "m3", "access", "variable"],
       ["Delta_q_us", "m3", "access", "constant"],
-      ["Delta_C", "m6_per_J", "access", "boundary_condition"]
+      ["Delta_C", "m6_per_J", "access", "boundary_condition"],
+      ["v_inf", "m3_per_s", "access", "constant"]
+      
     ]
   },
   {

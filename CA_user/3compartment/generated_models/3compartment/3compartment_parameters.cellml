@@ -147,7 +147,6 @@
     <units name="m3_per_mol_per_s" units_ref="m3_per_mol_per_s"/>
     <units name="mol_per_m3_per_s" units_ref="mol_per_m3_per_s"/>
     <units name="dim" units_ref="dim"/>
-    <units name="per_s" units_ref="per_s"/>
     <units name="fmol" units_ref="fmol"/>
     <units name="per_fmol" units_ref="per_fmol"/>
     <units name="nJ_per_s" units_ref="nJ_per_s"/>
