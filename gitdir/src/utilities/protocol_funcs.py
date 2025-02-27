@@ -48,7 +48,8 @@ def run_protocols(model_path, variables_to_plot, protocol_info=None, inp_data_di
     pre_times = protocol_info['pre_times']
     params_to_change_dict = protocol_info['params_to_change']
 
-
+    print(len(sim_times))
+    print(len(pre_times))
     num_experiments = len(sim_times)
     if num_experiments != len(pre_times):
         raise ValueError('pre_times and sim_times must be the same length')
@@ -65,6 +66,7 @@ def run_protocols(model_path, variables_to_plot, protocol_info=None, inp_data_di
         current_time = 0
         for idx, sim_time  in enumerate(sim_times[exp_idx]):
             if idx == 0:
+                print("simtime",sim_time)
                 sim_helper = SimulationHelper(model_path, dt, sim_time, solver_info={'MaximumNumberOfSteps':1000, 'MaximumStep':0.0001}, 
                                               pre_time=pre_times[exp_idx])
                 current_time += pre_times[exp_idx]
