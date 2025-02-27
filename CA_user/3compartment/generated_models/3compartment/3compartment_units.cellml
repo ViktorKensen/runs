@@ -402,6 +402,11 @@
         <unit exponent="-6" units="metre"/>
     </units>
     <!-- Elastance-->
+    <units name="sm6_per_J">
+        <unit exponent="1" units="second"/>
+        <unit exponent="6" units="metre"/>
+        <unit exponent="-1" units="joule"/>
+    </units>
     <units name="m6_per_J">
         <unit exponent="6" units="metre"/>
         <unit exponent="-1" units="joule"/>
