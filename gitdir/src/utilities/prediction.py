@@ -2,7 +2,39 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 from protocol_funcs import run_protocols
+#from /../scripts/param_id_run_script import run_param_id
 import ast
+import os 
+import sys
+import yaml
+
+# Define the root directory path
+root_dir_path = os.path.join(os.path.dirname(__file__), '../..', 'Examensprojekt_hpc')
+
+# Append the necessary paths to the system path
+utilities_dir = os.path.join(root_dir_path, 'gitdir', 'src', 'utilities')
+scripts_dir = os.path.join(root_dir_path, 'gitdir', 'src', 'scripts')
+
+print("Scripts Directory:", scripts_dir)
+
+sys.path.append(utilities_dir)
+sys.path.append(scripts_dir)
+
+# Import the required function
+from param_id_run_script import run_param_id
+
+# Define the user inputs directory
+user_inputs_dir = os.path.join(root_dir_path, 'CA_user', '3compartment')
+
+# Load the input data dictionary from the YAML file
+with open(os.path.join(user_inputs_dir, '3compartment_user_inputs.yaml'), 'r') as file:
+    inp_data_dict = yaml.load(file, Loader=yaml.FullLoader)
+
+# Run the parameter identification function
+run_param_id(inp_data_dict)
+
+
+
 
 protocol_info = {
     "protocol_info": {
