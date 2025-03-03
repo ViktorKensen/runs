@@ -72,6 +72,17 @@ except:
     #print(traceback.format_exc())
     print('exception')
     comm.Abort()
+    
+source_file = os.path.join(resources_post_dir, '3compartment_parameters.csv')
+destination_file = model_dir
+
+# Check if the source file exists
+if os.path.exists(source_file):
+    # Copy the file from source to destination
+    shutil.copy(source_file, destination_file)
+    print(f"File copied from {source_file} to {destination_file}")
+else:
+    print(f"Source file not found: {source_file}")
 
 print('Plotting')
 model_path = os.path.join(model_dir, '3compartment.cellml')
@@ -86,7 +97,7 @@ protocol_info = json_obj
 print(protocol_info)
 #protocol_info = json_obj
 
-t_list, res_list = run_protocols(model_path, parameters_to_plot, protocol_info)
+t_list, res_list = run_protocols(model_path, parameters_to_plot, protocol_info, inp_data_dict)
 
 # Load ground truth data
 ground_truth = pd.read_csv('ground_truth.csv')
