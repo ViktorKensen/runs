@@ -69,7 +69,7 @@
     "operation": "mean",
     "operands":["aortic_root/v"],
     "unit": "m3_per_s",
-    "weight": 1,
+    "weight": 3,
     "value": 0.000145,
     "std": 0.000004,
     "experiment_idx": 0,

@@ -61,7 +61,7 @@ ga_options:
                  # obs_data.json file instead. Currently if there is no cost_type entry in the
                  # obs_data.json entry, it will be set to this entry
   # maximum number of calls to the forward function during one run of the param_id_method
-  num_calls_to_function: 1000
+  num_calls_to_function: 2000
   cost_convergence: 0.001
 
 debug_ga_options:

@@ -21,8 +21,6 @@ resources_dir = os.path.join(root_dir_path, 'CA_user', '3compartment', 'resource
 resources_post_dir = os.path.join(root_dir_path, 'CA_user', '3compartment', 'resources_post')
 model_dir = os.path.join(root_dir_path, 'CA_user', '3compartment', 'generated_models', '3compartment_3compartment_obs_data')
 
-print("Scripts Directory:", scripts_dir)
-
 sys.path.append(utilities_dir)
 sys.path.append(scripts_dir)
 sys.path.append(resources_dir)
@@ -48,8 +46,6 @@ try:
 except:
     #print(traceback.format_exc())
     comm.Abort()
-
-
 
 inp_data_dict['resources_dir'] = resources_post_dir
 inp_data_dict['param_id_obs_path'] = os.path.join(resources_post_dir,'3compartment_obs_data.json')
