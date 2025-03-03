@@ -7,18 +7,27 @@ import ast
 import os 
 import sys
 import yaml
+import json
+from mpi4py import MPI
+import shutil
 
 # Define the root directory path
-root_dir_path = os.path.join(os.path.dirname(__file__), '../..', 'Examensprojekt_hpc')
+root_dir_path = '/hpc/vken399/Examensprojekt_hpc'
 
 # Append the necessary paths to the system path
 utilities_dir = os.path.join(root_dir_path, 'gitdir', 'src', 'utilities')
 scripts_dir = os.path.join(root_dir_path, 'gitdir', 'src', 'scripts')
+resources_dir = os.path.join(root_dir_path, 'CA_user', '3compartment', 'resources')
+resources_post_dir = os.path.join(root_dir_path, 'CA_user', '3compartment', 'resources_post')
+model_dir = os.path.join(root_dir_path, 'CA_user', '3compartment', 'generated_models', '3compartment_3compartment_obs_data')
 
 print("Scripts Directory:", scripts_dir)
 
 sys.path.append(utilities_dir)
 sys.path.append(scripts_dir)
+sys.path.append(resources_dir)
+sys.path.append(resources_post_dir)
+sys.path.append(model_dir)
 
 # Import the required function
 from param_id_run_script import run_param_id
@@ -31,27 +40,57 @@ with open(os.path.join(user_inputs_dir, '3compartment_user_inputs.yaml'), 'r') a
     inp_data_dict = yaml.load(file, Loader=yaml.FullLoader)
 
 # Run the parameter identification function
-run_param_id(inp_data_dict)
+print('Ran first param ID')
+
+comm = MPI.COMM_WORLD
+try:
+    run_param_id(inp_data_dict)
+except:
+    #print(traceback.format_exc())
+    comm.Abort()
 
 
 
+inp_data_dict['resources_dir'] = resources_post_dir
+inp_data_dict['param_id_obs_path'] = os.path.join(resources_post_dir,'3compartment_obs_data.json')
+inp_data_dict['params_for_id_path'] = os.path.join(resources_post_dir,'3compartment_params_for_id.csv')
+print('Changed paths')
 
-protocol_info = {
-    "protocol_info": {
-        "pre_times": [20.791666666],
-        "sim_times": [[20.791666666, 5, 20.791666666]],
-        "params_to_change": {
-            "venous_svc/v_inf": [[0, 0.0001, 0]]
-        },
-        "experiment_colors": ["r", "b"],
-        "experiment_labels": ["inf", "heart"]
-    }
-}
+# Define the source and destination file paths
+source_file = os.path.join(model_dir, '3compartment_parameters.csv')
+destination_file = resources_post_dir
 
-model_path = "/hpc/vken399/Examensprojekt_hpc/CA_user/3compartment/generated_models/3compartment_3compartment_obs_data/3compartment.cellml"
+# Check if the source file exists
+if os.path.exists(source_file):
+    # Copy the file from source to destination
+    shutil.copy(source_file, destination_file)
+    print(f"File copied from {source_file} to {destination_file}")
+else:
+    print(f"Source file not found: {source_file}")
+    
+print('Running post param id')
+try:
+    run_param_id(inp_data_dict)
+    MPI.Finalize()
+except:
+    #print(traceback.format_exc())
+    print('exception')
+    comm.Abort()
+
+print('Plotting')
+model_path = os.path.join(model_dir, '3compartment.cellml')
 parameters_to_plot = ["aortic_root/v", "heart/u_ra"]
 
-t_list, res_list = run_protocols(model_path, parameters_to_plot, protocol_info['protocol_info'])
+
+param_id_obs_path = inp_data_dict['param_id_obs_path']
+with open(param_id_obs_path, encoding='utf-8-sig') as rf:
+    json_obj = json.load(rf)
+
+protocol_info = json_obj
+print(protocol_info)
+#protocol_info = json_obj
+
+t_list, res_list = run_protocols(model_path, parameters_to_plot, protocol_info)
 
 # Load ground truth data
 ground_truth = pd.read_csv('ground_truth.csv')
@@ -75,7 +114,7 @@ for param in parameters_to_plot:
         mean_values_dict[param].append([mean_val_first, mean_val_last])
         
         # Plot the simulation data
-        plt.plot(t_vec, var_data, label=f"Experiment {exp_idx + 1} - {param}", color=protocol_info['protocol_info']['experiment_colors'][parameters_to_plot.index(param)])
+        plt.plot(t_vec, var_data, label=f"Experiment {exp_idx + 1} - {param}", color='red')
         
         # Plot the mean values for the first and last simulation times only for their respective portions
         plt.plot([0, sim_times[0]], [mean_val_first, mean_val_first], linestyle=':', color='green', linewidth=2.5, label=f"Simulation Mean Pre {param}")
@@ -94,7 +133,8 @@ for param in parameters_to_plot:
     plt.xlabel('Time (s)', fontsize=12)
     plt.ylabel('Variable Value', fontsize=12)
     plt.title(f'Simulation Results for {param}', fontsize=14)
-    plt.legend(loc='upper right', fontsize='small', frameon=True)
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05), ncol=2, fontsize='small', frameon=True)
+    #plt.legend(loc='upper right', fontsize='small', frameon=True)
     plt.grid(True)
     plt.savefig(f'simulation_results_{param.replace("/", "_")}.png')
 

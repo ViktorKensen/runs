@@ -1,0 +1,4 @@
+vessel_name,                  param_name,       param_type,  min,        max,     name_for_plotting
+heart,                        q_lv_init,        const,       500e-6,    1500e-6,  q_{sbv} 
+venous_svc,	              C,                const,       5.61168e-7,     7.41752e-7,  C_{svc}
+

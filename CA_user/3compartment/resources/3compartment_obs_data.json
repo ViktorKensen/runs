@@ -1,6 +1,6 @@
 {"protocol_info":
-  { "pre_times": [20.791666666, 0, 20.791666666],
-      "sim_times": [ 3.6734693877, 5, 3.6734693877],
+  { "pre_times": [20.791666666],
+      "sim_times": [[ 3.6734693877, 5, 3.6734693877]],
       "params_to_change": {
         "venous_svc/v_inf": [[0, 0.0001, 0]]},
       "experiment_colors": ["r"],

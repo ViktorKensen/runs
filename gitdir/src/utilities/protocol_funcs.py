@@ -43,6 +43,8 @@ def run_protocols(model_path, variables_to_plot, protocol_info=None, inp_data_di
             json_obj = json.load(rf)
 
         protocol_info = json_obj['protocol_info']
+    else:
+        protocol_info = protocol_info['protocol_info']
 
     sim_times = protocol_info['sim_times']
     pre_times = protocol_info['pre_times']
