@@ -646,7 +646,7 @@
     <variable name="C_aortic_root" units="m6_per_J" initial_value="1.2028e-08" interface="public"/>
     <variable name="u_ext_aortic_root" units="J_per_m3" initial_value="0.0" interface="public"/>
     <variable name="I_aortic_root" units="Js2_per_m6" initial_value="1.0e+4" interface="public"/>
-    <variable name="R_T_systemic_T" units="Js_per_m6" initial_value="4.5515929202e+07" interface="public"/>
+    <variable name="R_T_systemic_T" units="Js_per_m6" initial_value="5.0429327191e+07" interface="public"/>
     <variable name="C_T_systemic_T" units="m6_per_J" initial_value="5e-8" interface="public"/>
     <variable name="u_ext_systemic_T" units="J_per_m3" initial_value="0.0" interface="public"/>
     <variable name="R_venous_svc" units="Js_per_m6" initial_value="511460.0" interface="public"/>
@@ -669,7 +669,7 @@
     <variable name="q_ra_init" units="m3" initial_value="4.0e-6" interface="public"/>
     <variable name="q_rv_init" units="m3" initial_value="10.0e-6" interface="public"/>
     <variable name="q_la_init" units="m3" initial_value="4.0e-6" interface="public"/>
-    <variable name="q_lv_init" units="m3" initial_value="5.0000000000e-03" interface="public"/>
+    <variable name="q_lv_init" units="m3" initial_value="5.0000000000e-04" interface="public"/>
     <variable name="T_ac" units="second" initial_value="0.10408163264" interface="public"/>
     <variable name="T_ar" units="second" initial_value="0.10408163264" interface="public"/>
     <variable name="t_astart" units="second" initial_value="0.48979591832" interface="public"/>
