@@ -97,8 +97,8 @@ t_list, res_list = run_protocols(model_path, parameters_to_plot, protocol_info, 
 # Load ground truth data
 ground_truth = pd.read_csv('ground_truth.csv')
 
-# Initialize a dictionary to store mean values for each variable
-mean_values_dict = {var: [] for var in parameters_to_plot}
+# Initialize a list to store all data in the desired format
+data_list = []
 
 # Plot the results for each parameter separately
 for param in parameters_to_plot:
@@ -112,8 +112,9 @@ for param in parameters_to_plot:
         mean_val_first = np.mean(var_data[:len(var_data)//2])
         mean_val_last = np.mean(var_data[len(var_data)//2:])
         
-        # Append mean values as a list to the dictionary
-        mean_values_dict[param].append([mean_val_first, mean_val_last])
+        # Append mean values to data list in the desired format
+        data_list.append([param, "Simulated", "Pre", mean_val_first])
+        data_list.append([param, "Simulated", "Post", mean_val_last])
         
         # Plot the simulation data
         plt.plot(t_vec, var_data, label=f"Experiment {exp_idx + 1} - {param}", color='red')
@@ -122,15 +123,17 @@ for param in parameters_to_plot:
         plt.plot([0, sim_times[0]], [mean_val_first, mean_val_first], linestyle=':', color='green', linewidth=2.5, label=f"Simulation Mean Pre {param}")
         plt.plot([sum(sim_times[:2]), sum(sim_times)], [mean_val_last, mean_val_last], linestyle=':', color='green', linewidth=2.5, label=f"Simulation Mean Post {param}")
 
-        # Plot ground truth if variable exists in CSV
+        # Plot ground truth if variable exists in CSV and append to data list in desired format
         if param in ground_truth.columns:
             ground_truth_vals = ast.literal_eval(ground_truth[param].values[0])
+            data_list.append([param, "Measured", "Pre", ground_truth_vals[0]])
+            data_list.append([param, "Measured", "Post", ground_truth_vals[1]])
 
             # Plot ground truth for the entirety of the first simulation time
-            plt.plot([0, sim_times[0]], [ground_truth_vals[0], ground_truth_vals[0]], linestyle=':', color='blue', linewidth=2.5, label=f"Messured Pre {param}")
+            plt.plot([0, sim_times[0]], [ground_truth_vals[0], ground_truth_vals[0]], linestyle=':', color='blue', linewidth=2.5, label=f"Measured Pre {param}")
 
             # Plot ground truth for the third and final simulation time
-            plt.plot([sum(sim_times[:2]), sum(sim_times)], [ground_truth_vals[1], ground_truth_vals[1]], linestyle=':', color='blue', linewidth=2.5, label=f"Messured Post {param}")
+            plt.plot([sum(sim_times[:2]), sum(sim_times)], [ground_truth_vals[1], ground_truth_vals[1]], linestyle=':', color='blue', linewidth=2.5, label=f"Measured Post {param}")
 
     plt.xlabel('Time (s)', fontsize=12)
     plt.ylabel('Variable Value', fontsize=12)
@@ -142,8 +145,8 @@ for param in parameters_to_plot:
 
     print(f"Simulation results for {param} have been plotted and saved as 'simulation_results_{param.replace('/', '_')}.png'.")
 
-# Save mean values to CSV file
-mean_values_df = pd.DataFrame(mean_values_dict)
-mean_values_df.to_csv('prediction_results.csv', index=False)
+# Save data to CSV file in the desired format
+data_df = pd.DataFrame(data_list, columns=["Parameter", "Type", "Time", "Value"])
+data_df.to_csv('prediction_results.csv', index=False)
 
-print("Mean values have been saved to 'prediction_results.csv'.")
+print("Data has been saved to 'prediction_results.csv' in the desired format.")

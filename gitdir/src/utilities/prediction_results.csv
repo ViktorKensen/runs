@@ -1,2 +1,9 @@
-aortic_root/v,heart/u_ra
-"[0.00012298524964176916, 0.00014742454361738077]","[1333.3338070848197, 1633.1813514006865]"
+Parameter,Type,Time,Value
+aortic_root/v,Simulated,Pre,0.0001280760953812458
+aortic_root/v,Simulated,Post,0.00015152022311938724
+aortic_root/v,Measured,Pre,8.9e-05
+aortic_root/v,Measured,Post,0.000101
+heart/u_ra,Simulated,Pre,1437.700606977173
+heart/u_ra,Simulated,Post,1753.2567718586272
+heart/u_ra,Measured,Pre,974.04
+heart/u_ra,Measured,Post,2249.61
